@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Check Program</title>
+    <script>
+
+        function isArray(input) {
+            return Array.isArray(input);
+        }
+
+
+        function checkArray() {
+            const inputValue = document.getElementById("inputField").value;
+            let resultMessage = "";
+
+
+            try {
+                const parsedInput = JSON.parse(inputValue);
+                if (isArray(parsedInput)) {
+                    resultMessage = "Yes, it's an array!";
+                } else {
+                    resultMessage = "No, it's not an array.";
+                }
+            } catch (e) {
+                resultMessage = "Invalid JSON format. Please provide a valid array format.";
+            }
+
+
+            document.getElementById("result").textContent = resultMessage;
+        }
+    </script>
+</head>
+<body>
+    <h1>To Check An Array C</h1>
+
+    <label for="inputField">Enter a value (e.g., [1, 2, 3]):</label>
+    <input type="text" id="inputField" placeholder='Enter JSON format like [1,2,3]'>
+
+    <button onclick="checkArray()">Check if it's an Array</button>
+
+    <p id="result"></p>
+</body>
+</html>
