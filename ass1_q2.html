@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get First Elements of Array</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    label {
+      font-size: 16px;
+      margin-right: 10px;
+    }
+    input {
+      padding: 5px;
+      font-size: 16px;
+      width: 60px;
+    }
+    button {
+      padding: 5px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .output {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Get First 'n' Elements from an Array</h1>
+
+  <label for="numElements">Enter number of elements:</label>
+  <input type="number" id="numElements" value="1" min="1" />
+
+  <button onclick="showFirstElements()">Get Elements</button>
+
+  <div class="output" id="output"></div>
+
+  <script>
+    // Function to get first 'n' elements of an array
+    function getFirstElements(arr, n = 1) {
+      return arr.slice(0, n);
+    }
+
+    // Function to display the result in the HTML page
+    function showFirstElements() {
+      const num = document.getElementById('numElements').value;
+      const array = [1, 2, 3, 4, 5]; // Example array
+      const result = getFirstElements(array, num);
+
+      // Display the result on the page
+      const outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = `First ${num} elements: [${result.join(', ')}]`;
+    }
+  </script>
+</body>
+</html>
+
